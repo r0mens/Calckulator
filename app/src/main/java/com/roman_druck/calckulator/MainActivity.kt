@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
                 val item = tokens.size
                 Log.d(TAG, "item :$item")
-                for(in i= 0, i <= colorName.length, i++ ){
+                tokens.forEach{
 
 
 
