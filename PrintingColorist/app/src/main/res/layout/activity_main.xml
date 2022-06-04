@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textlayout1"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/showcolor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/number_color"
+            android:inputType="none|textAutoComplete"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            tools:ignore="TextContrastCheck" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/base_color"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textlayout1"
+        app:layout_constraintTop_toBottomOf="@+id/textlayout1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="42dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/percent"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textlayout1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="101dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/massa_base_color"
+        app:layout_constraintEnd_toEndOf="@id/textlayout1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/basecolor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="none|textPersonName|text"
+        android:gravity="center"
+        android:textColor="@color/teal_200"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/percent1"
+        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/percent1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text|numberDecimal"
+        android:gravity="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/weightcolor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text|numberDecimal"
+        android:gravity="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/basecolor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/basecolor1"
+        app:layout_constraintStart_toStartOf="@+id/basecolor1"
+        app:layout_constraintTop_toBottomOf="@+id/basecolor1" />
+
+    <EditText
+        android:id="@+id/weightcolor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/weightcolor1"
+        app:layout_constraintStart_toEndOf="@+id/percent1"
+        app:layout_constraintTop_toBottomOf="@+id/weightcolor1" />
+
+    <EditText
+        android:id="@+id/percent2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
+        app:layout_constraintStart_toEndOf="@+id/basecolor2"
+        app:layout_constraintTop_toBottomOf="@+id/percent1" />
+
+    <EditText
+        android:id="@+id/weightcolor3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/weightcolor2"
+        app:layout_constraintStart_toStartOf="@+id/weightcolor2"
+        app:layout_constraintTop_toBottomOf="@+id/weightcolor2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/percent3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
+        app:layout_constraintStart_toEndOf="@+id/basecolor2"
+        app:layout_constraintTop_toBottomOf="@+id/percent2" />
+
+    <EditText
+        android:id="@+id/basecolor3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/basecolor2"
+        app:layout_constraintStart_toStartOf="@+id/basecolor2"
+        app:layout_constraintTop_toBottomOf="@+id/basecolor2" />
+
+    <EditText
+        android:id="@+id/weightcolor4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/weightcolor3"
+        app:layout_constraintStart_toStartOf="@+id/weightcolor3"
+        app:layout_constraintTop_toBottomOf="@+id/weightcolor3" />
+
+    <EditText
+        android:id="@+id/percent4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:inputType="text|numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/weightcolor3"
+        app:layout_constraintStart_toStartOf="@+id/percent3"
+        app:layout_constraintTop_toBottomOf="@+id/percent3" />
+
+    <EditText
+        android:id="@+id/basecolor4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/percent3"
+        app:layout_constraintStart_toStartOf="@+id/basecolor3"
+        app:layout_constraintTop_toBottomOf="@+id/basecolor3" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/weightcolor4"
+        app:layout_constraintStart_toStartOf="@+id/basecolor4"
+        app:layout_constraintTop_toBottomOf="@+id/percent4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/massa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:elegantTextHeight="true"
+            android:hint="@string/massa_total" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--suppress AndroidUnresolvableTag, AndroidElementNotAllowed -->
+    <TextView
+        android:id="@+id/colorsampl"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#2196F3"
+        android:text="c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/m"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="onClickRezult"
+        android:text="m"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/yellow_fon"
+        android:text="y"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/black"
+        android:text="K"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

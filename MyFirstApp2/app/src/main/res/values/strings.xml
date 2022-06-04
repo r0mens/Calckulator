@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Колорист</string>
+    <string name="number_color">Введите номер цвета</string>
+    <string name="masa" translatable="false">Введите количество краски</string>
+    <string name="Base_color" translatable="false">Состав</string>
+    <string name="base_color" translatable="false">Базовый цвет:</string>
+    <string name="massa_color" translatable="false">Масса краски</string>
+    <string name="save_color" translatable="false">Сохранить цвета</string>
+    <string name="formula" translatable="false">Формула</string>
+    <string name="no_data" translatable="false">Нет данных</string>
+    <string name="clean" translatable="false">Очистить</string>
+    <string name="percent" translatable="false">%</string>
+    <string name="massa" translatable="false">гр.</string>
+    <string name="cyan" translatable="false">C</string>
+    <string name="magenta" translatable="false">M</string>
+    <string name="yellow" translatable="false">Y</string>
+    <string name="black" translatable="false">K</string>
+
+
+
+    <string name="massa_base_color" translatable="false">Weight (..)</string>
+    <string name="massa_total" translatable="false">Weight total</string>
+    <string name="decimal" translatable="false">numberDecimal</string>
+    <string name="base_color1" translatable="false">color1</string>
+    <string-array name="color_name_array">
+        <item>p 100</item>
+        <item>p 101</item>
+        <item>p 102</item>
+        <item>p 103</item>
+        <item>p 104</item>
+        <item>p 105</item>
+        <item>p 106</item>
+        <item>p 107</item>
+        <item>p 108</item>
+        <item>p 109</item>
+    </string-array>
+
+</resources>

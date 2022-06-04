@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Calckulator</string>
+
+    <string name="number_color">Название цвета</string>
+    <string name="base_color">Базовые цвета</string>
+    <string name="percent">%</string>
+    <string name="massa_base_color">Масса(..)</string>
+    <string name="massa_total">Общая масса</string>
+    <string name="decimal">numberDecimal</string>
+    <string name="base_color1" translatable="false">color1</string>
+    <string name="tost">получилось что то</string>
+
+
+
+
+</resources>

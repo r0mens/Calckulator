@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PrintingColorist</string>
+    <string name="number_color">Name color</string>
+    <string name="base_color">Basic colors</string>numberDecimal
+    <string name="percent">%</string>
+    <string name="massa_base_color">Weight (..)</string>
+    <string name="massa_total">Weight total</string>
+    <string name="decimal">numberDecimal</string>
+    <string name="base_color1" translatable="false">color1</string>
+    <string name="isnotEmpty">заполните поле</string>
+</resources>

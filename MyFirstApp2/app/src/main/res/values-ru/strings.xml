@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Моё приложение</string>
+    <string name="number_color" translatable="false">Введите номер цвета</string>
+
+</resources>

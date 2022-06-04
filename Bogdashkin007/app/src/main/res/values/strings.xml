@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Dog</string>
+    <string name="number_color">number color</string>
+    <string name="base_color">Basic colors</string>
+    <string name="percent">%</string>
+    <string name="massa_base_color">Weight (..)</string>
+    <string name="massa_total">Weight total</string>
+    <string name="decimal">numberDecimal</string>
+    <string name="base_color1" translatable="false">color1</string>
+    <string-array name="dogs">
+        <item>Bulldog</item>
+        <item>Lhasa Apso</item>
+        <item>Bloodhound</item>
+        <item>Boxer</item>
+        <item>Alaskan Malamute</item>
+        <item>Australian Cattle Dog</item>
+        <item>Old English Sheepdog</item>
+        <item>Dachshund</item>
+        <item>Beagle</item>
+        <item>Border Collie</item>
+    </string-array>
+    <string-array name="color_name_array">
+        <item>p100</item>
+        <item>p101</item>
+        <item>p102</item>
+        <item>p103</item>
+        <item>p104</item>
+        <item>p105</item>
+        <item>p106</item>
+        <item>p107</item>
+        <item>p108</item>
+        <item>p109</item>
+    </string-array>
+</resources>

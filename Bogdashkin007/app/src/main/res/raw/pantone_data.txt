@@ -1,0 +1,10 @@
+p100|#FCEA76|Yellow|3.1|Trans.White|96.6||||
+p101|#FCE85F|Yellow|12.5|Trans.White|87.5||||
+p102|#FEE500|Yellow|50.0|Trans.White|50.0||||
+p103|#D0BC00|Yellow|98.5|Black|1.5||||
+p104|#BBA30D|Yellow|94.1|Black|5.9||||
+p105|#998730|Yellow|80.0|Black|20.0||||
+p106|#FCE85D|Yellow|12.5|Warm Red|0.2|Trans.White|87.3||
+p107|#FDE724|Yellow|24.9|Warm Red|0.4|Trans.White|74.7||
+p108|#F9DA00|Yellow|49.6|Warm Red|0.8|Trans.White|49.6||
+p109|#F8D500|Yellow|98.5|Warm Red|1.5||||
