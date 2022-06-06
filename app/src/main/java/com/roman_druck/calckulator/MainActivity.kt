@@ -14,16 +14,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var pantone : AutoCompleteTextView
-    var colorsampl : TextView? = null
+    private var colorsampl : TextView? = null
     lateinit var massa : EditText
     lateinit var basecolor1 : EditText
     lateinit var basecolor2 : EditText
-    var basecolor3 : EditText? =  null
-    var basecolor4 : EditText? = null
+    private var basecolor3 : EditText? =  null
+    private var basecolor4 : EditText? = null
     lateinit var percent1 : EditText
     lateinit var percent2 : EditText
-    var percent3 : EditText? = null
-    var percent4 : EditText? = null
+    private var percent3 : EditText? = null
+    private var percent4 : EditText? = null
 
     val TAG : String = "Main"
 
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //use array of string to populate a spinner
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, colorName)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, colorName)
         pantone.setAdapter(adapter)
         pantone.threshold = 3
 
@@ -88,80 +88,63 @@ class MainActivity : AppCompatActivity() {
                 massa.setBackgroundColor(Color.parseColor(pantone.text.toString()))
             } catch (e: Exception) {
                 val index = colorName.indexOf(pantone.text.toString())
-                //Log.d(TAG,"colorName: $colorName")
+                Log.d(TAG,"colorName: $colorName")
                 //colorName.forEach { i ->}
                 //split/parse the ith line into tokens
                 val tokens = lines[index].split("|")
                 Log.d(TAG,"tokens :$tokens")
 
-                val item = tokens.size
+                var item = tokens.size
                 Log.d(TAG, "item :$item")
-                tokens.forEach{
 
+                for(i in tokens) {
 
-
-                    if(item <= 5 ){
-                             basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[1])
-                             basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
-                             percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
-                             percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
-                             colorsampl?.visibility = View.VISIBLE
-                             colorsampl?.setBackgroundColor(Color.parseColor(hexcodes[index]))
-                             Log.d(TAG,"newEditable :${tokens[1]}")
-                             Log.d(TAG,"newEditable :${tokens[2]}")
-                             Log.d(TAG,"newEditable :${tokens[3]}")
-                             Log.d(TAG,"newEditable :${tokens[4]}")
+                    Log.d(TAG, "i :$i")
+                    when (item) {
+                        6 -> {
+                            basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[2])
+                            basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[4])
+                            percent1.text = Editable.Factory.getInstance().newEditable(tokens[3])
+                            percent2.text = Editable.Factory.getInstance().newEditable(tokens[5])
+                        }
+                        7 -> {
+                            basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[1])
+                            basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
+                            percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
+                            percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
+                            basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
+                            percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
+                        }
+                        9 -> {
+                            basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[1])
+                            basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
+                            percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
+                            percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
+                            basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
+                            percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
+                            basecolor4?.text = Editable.Factory.getInstance().newEditable(tokens[7])
+                            percent4?.text = Editable.Factory.getInstance().newEditable(tokens[8])
+                        }
 
                     }
-                    if (item >=7){
-                        basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[1])
-                        basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
-                        percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
-                        percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
-                        basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
-                        percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
-                        colorsampl?.visibility = View.VISIBLE
-                        colorsampl?.setBackgroundColor(Color.parseColor(hexcodes[index]))
-                    }
-                     else{
-                        basecolor1.text = Editable.Factory.getInstance().newEditable(tokens[1])
-                        basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
-                        percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
-                        percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
-                        basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
-                        percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
-                        basecolor4?.text = Editable.Factory.getInstance().newEditable(tokens[7])
-                        percent4?.text = Editable.Factory.getInstance().newEditable(tokens[8])
-                        colorsampl?.visibility = View.VISIBLE
-                        colorsampl?.setBackgroundColor(Color.parseColor(hexcodes[index]))
-                    }
+                    //basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
+                    //percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
+                    //basecolor4?.text = Editable.Factory.getInstance().newEditable(tokens[7])
+                    //percent4?.text = Editable.Factory.getInstance().newEditable(tokens[8])
+
+
                     //basecolor1.setTextColor(Color.parseColor(Constans.Yellow))
 
 
-                    //basecolor2.text = Editable.Factory.getInstance().newEditable(tokens[3])
-                    //basecolor2.setTextColor(Color.parseColor(Constans.WarmRed))
-                    Log.d(TAG,"newEditable :${tokens[3]}")
-                    //percent1.text = Editable.Factory.getInstance().newEditable(tokens[2])
-                    Log.d(TAG,"newEditable :${tokens[2]}")
-                   //percent2.text = Editable.Factory.getInstance().newEditable(tokens[4])
-                    Log.d(TAG,"newEditable :${tokens[4]}")
-                   // basecolor3?.text = Editable.Factory.getInstance().newEditable(tokens[5])
-                    //basecolor3.setTextColor(Color.parseColor(Constans.ReflexBlue)
-                    Log.d(TAG,"newEditable :${tokens[5]}")
-                    basecolor4?.text = Editable.Factory.getInstance().newEditable(tokens[7])
-                    //basecolor4.setTextColor(Color.parseColor(Constans.Black))
-                    Log.d(TAG,"newEditable :${tokens[7]}")
-                    //percent3?.text = Editable.Factory.getInstance().newEditable(tokens[6])
-                    Log.d(TAG,"newEditable :${tokens[6]}")
-                    percent4?.text = Editable.Factory.getInstance().newEditable(tokens[8])
-                    Log.d(TAG,"newEditable :${tokens[8]}")
+
+
                 }
 
 
                 //val index = colorNames.indexOf(pantone.text.toString())
                 Toast.makeText(applicationContext, "" , Toast.LENGTH_SHORT).show()
                 colorsampl?.visibility = View.VISIBLE
-                colorsampl?.setBackgroundColor(Color.parseColor(hexcodes[index]))
+                colorsampl?.setBackgroundColor(Color.parseColor(tokens[1]))
 
 
             }
