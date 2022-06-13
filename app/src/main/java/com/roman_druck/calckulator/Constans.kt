@@ -1,12 +1,12 @@
 package com.roman_druck.calckulator
 
 object Constans {
-    const val Blue072 = "#2F408E"
-    const val Black	= "#2F2C27"
-    const val WarmRed = "#DE5A4A"
-    const val Yellow = "#FDE100"
-    const val Green	= "#00A079"
-    const val ORANGE021=  "#E5801C"
+    //const val BLUE 072 = "#2F408E"
+    const val BLACK	= "#2F2C27"
+    //const val WARM RED = "#DE5A4A"
+    const val YELLOW = "#FDE100"
+    const val GREEN	= "#00A079"
+    //const val ORANGE 021=  "#E5801C"
     const val ProcessBlue = "#008BCC"
     const val Purple = "#A3428F"
     const val Red032 =	"#DD5354"

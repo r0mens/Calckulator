@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/base_color"
+        android:background="@color/green_fon"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textlayout1"
         app:layout_constraintTop_toBottomOf="@+id/textlayout1" />
@@ -48,9 +49,11 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="42dp"
-        android:layout_height="19dp"
+        android:layout_height="20dp"
         android:gravity="center"
+        android:background="@color/green_fon"
         android:text="@string/percent"
+        android:layout_marginBottom="2dp"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView1"
         app:layout_constraintTop_toBottomOf="@+id/textlayout1" />
@@ -61,6 +64,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/massa_base_color"
+        android:background="@color/green_fon"
         app:layout_constraintEnd_toEndOf="@id/textlayout1"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -71,7 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="140"
         android:gravity="center"
         android:inputType="none|textPersonName|text"
         android:textColor="@color/black"
@@ -85,11 +89,12 @@
         android:id="@+id/percent1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:gravity="center"
         android:inputType="text|numberDecimal"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView1"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -100,7 +105,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:gravity="center"
         android:inputType="text|numberDecimal"
         android:textSize="12sp"
@@ -113,7 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:gravity="center"
         android:inputType="textPersonName"
         android:textColor="@color/black"
@@ -127,9 +132,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:inputType="text|numberDecimal"
         android:textSize="12sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/weightcolor1"
         app:layout_constraintStart_toEndOf="@+id/percent1"
         app:layout_constraintTop_toBottomOf="@+id/weightcolor1" />
@@ -139,9 +145,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
+        android:gravity="center"
         android:inputType="text|numberDecimal"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
         app:layout_constraintStart_toEndOf="@+id/basecolor2"
         app:layout_constraintTop_toBottomOf="@+id/percent1" />
@@ -151,9 +158,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:inputType="text|numberDecimal"
         android:textSize="12sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/weightcolor2"
         app:layout_constraintStart_toStartOf="@+id/weightcolor2"
         app:layout_constraintTop_toBottomOf="@+id/weightcolor2"
@@ -164,9 +172,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:gravity="center"
+        android:ems="40"
         android:inputType="text|numberDecimal"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
         app:layout_constraintStart_toEndOf="@+id/basecolor2"
         app:layout_constraintTop_toBottomOf="@+id/percent2" />
@@ -176,7 +185,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
         android:gravity="center"
         android:inputType="textPersonName"
         android:textColor="@color/black"
@@ -190,10 +199,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:ems="10"
+        android:ems="40"
+        android:gravity="center"
         android:inputType="text|numberDecimal"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/weightcolor3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/weightcolor3"
         app:layout_constraintTop_toBottomOf="@+id/weightcolor3" />
 
@@ -204,7 +215,7 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="text|numberDecimal"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor3"
         app:layout_constraintStart_toStartOf="@+id/percent3"
         app:layout_constraintTop_toBottomOf="@+id/percent3" />
@@ -244,20 +255,6 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/colorsampl"
-        android:layout_width="250dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="60dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     <Button
         android:id="@+id/button"
@@ -304,5 +301,28 @@
         android:text="K"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout3" />
+
+    <FrameLayout
+        android:layout_width="407dp"
+        android:layout_height="344dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout3">
+
+        <TextView
+            android:id="@+id/colorsampl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="60dp"
+            android:visibility="gone" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
