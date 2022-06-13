@@ -198,7 +198,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        kkalkulat.setOnClickListener {
+        kkalkulat.setOnClickListener() {
            calculateTip()
         }
     }
@@ -224,22 +224,22 @@ class MainActivity : AppCompatActivity() {
             val tipPercent4 = percent4.text.toString().toDouble()
 
 
-                val calc_tip1 = (doubleMassa * tipPercent1) / 100
-                val calc_tip2 = (doubleMassa * tipPercent2) / 100
-                val calc_tip3 = (doubleMassa * tipPercent3) / 100
-                val calc_tip4 = (doubleMassa * tipPercent4) / 100
-                weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
-                weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
-                weightcolor3.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
-                weightcolor4.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
-                Log.d(TAG, "calc_tip1: $calc_tip1")
-                Log.d(TAG, "calc_tip2: $calc_tip2")
-                Log.d(TAG, "calc_tip3: $calc_tip3")
-                Log.d(TAG, "calc_tip4: $calc_tip4")
-                Log.d(TAG, "weightcolor1: ${weightcolor1.text}")
-                Log.d(TAG, "weightcolor2: ${weightcolor2.text}")
-                Log.d(TAG, "weightcolor3: ${weightcolor3.text}")
-                Log.d(TAG, "weightcolor4: ${weightcolor4.text}")
+            val calc_tip1 = (doubleMassa * tipPercent1) / 100
+            val calc_tip2 = (doubleMassa * tipPercent2) / 100
+            val calc_tip3 = (doubleMassa * tipPercent3) / 100
+            val calc_tip4 = (doubleMassa * tipPercent4) / 100
+            weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+            weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+            weightcolor3.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+            weightcolor4.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+            //Log.d(TAG, "calc_tip1: $calc_tip1")
+            //Log.d(TAG, "calc_tip2: $calc_tip2")
+            //Log.d(TAG, "calc_tip3: $calc_tip3")
+            //Log.d(TAG, "calc_tip4: $calc_tip4")
+            Log.d(TAG, "weightcolor1: ${weightcolor1.text}")
+            Log.d(TAG, "weightcolor2: ${weightcolor2.text}")
+            Log.d(TAG, "weightcolor3: ${weightcolor3.text}")
+            Log.d(TAG, "weightcolor4: ${weightcolor4.text}")
 
         }
 }
