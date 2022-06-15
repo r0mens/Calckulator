@@ -10,8 +10,11 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-
-
+//import java.math.BigDecimal
+//import java.math.RoundingMode
+//import java.text.DecimalFormat
+//import kotlin.math.round
+import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -224,10 +227,11 @@ class MainActivity : AppCompatActivity() {
             val tipPercent4 = percent4.text.toString().toDouble()
 
 
-            val calc_tip1 = (doubleMassa * tipPercent1) / 100
-            val calc_tip2 = (doubleMassa * tipPercent2) / 100
-            val calc_tip3 = (doubleMassa * tipPercent3) / 100
-            val calc_tip4 = (doubleMassa * tipPercent4) / 100
+
+            val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 100).roundToInt()/100.0
+            val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 100).roundToInt()/100.0
+            val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 100).roundToInt()/100.0
+            val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 100).roundToInt()/100.0
             weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
             weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
             weightcolor3.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
@@ -241,7 +245,9 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "weightcolor3: ${weightcolor3.text}")
             Log.d(TAG, "weightcolor4: ${weightcolor4.text}")
 
+
         }
+
 }
 
 
