@@ -3,6 +3,7 @@ package com.roman_druck.calckulator
 
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+//import androidx.core.widget.addTextChangedListener
 //import java.math.BigDecimal
 //import java.math.RoundingMode
 //import java.text.DecimalFormat
@@ -18,23 +20,23 @@ import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var pantone : AutoCompleteTextView
-    private var colorsampl : TextView? = null
-    lateinit var massa : EditText
-    lateinit var basecolor1 : EditText
-    lateinit var basecolor2 : EditText
-    lateinit var basecolor3 : EditText
-    lateinit var basecolor4 : EditText
-    lateinit var percent1 : EditText
-    lateinit var percent2 : EditText
-    lateinit var percent3 : EditText
-    lateinit var percent4 : EditText
-    lateinit var weightcolor1 : EditText
-    lateinit var weightcolor2 : EditText
-    lateinit var weightcolor3 : EditText
-    lateinit var weightcolor4 : EditText
+    lateinit var pantone: AutoCompleteTextView
+    private var colorsampl: TextView? = null
+    lateinit var massa: EditText
+    lateinit var basecolor1: EditText
+    lateinit var basecolor2: EditText
+    lateinit var basecolor3: EditText
+    lateinit var basecolor4: EditText
+    lateinit var percent1: EditText
+    lateinit var percent2: EditText
+    private var percent3: EditText? = null
+    private var percent4: EditText? = null
+    lateinit var weightcolor1: EditText
+    lateinit var weightcolor2: EditText
+    private var weightcolor3: EditText? = null
+    private var weightcolor4: EditText? = null
 
-    val TAG : String = "Main"
+    val TAG: String = "Main"
 
     //val hex_pattern = Regex("^#[0-9A-F]{6}")
 
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         percent4 = findViewById(R.id.percent4)
         val magenta = findViewById<Button>(R.id.button2)
         val kkalkulat = findViewById<Button>(R.id.button4)
+        //val menuy = findViewById<Button>(R.id.button3)
         weightcolor1 = findViewById(R.id.weightcolor1)
         weightcolor2 = findViewById(R.id.weightcolor2)
         weightcolor3 = findViewById(R.id.weightcolor3)
@@ -93,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, pantone.text.toString(), Toast.LENGTH_SHORT).show()
             try {
-                colorsampl?.visibility = TextView.VISIBLE
+                //colorsampl?.visibility = TextView.VISIBLE
                 massa.setBackgroundColor(Color.parseColor(pantone.text.toString()))
             } catch (e: Exception) {
                 val index = colorName.indexOf(pantone.text.toString())
@@ -121,12 +124,12 @@ class MainActivity : AppCompatActivity() {
                             percent2.text = Editable.Factory.getInstance().newEditable(tokens[5])
                             basecolor3.getText().clear()
                             basecolor4.getText().clear()
-                            percent3.getText().clear()
-                            percent4.getText().clear()
+                            percent3?.getText()?.clear()
+                            percent4?.getText()?.clear()
                             weightcolor1.getText().clear()
                             weightcolor2.getText().clear()
-                            weightcolor3.getText().clear()
-                            weightcolor4.getText().clear()
+                            weightcolor3?.getText()?.clear()
+                            weightcolor4?.getText()?.clear()
                             calculateTip()
 
                         }
@@ -141,14 +144,14 @@ class MainActivity : AppCompatActivity() {
                             percent2.text = Editable.Factory.getInstance().newEditable(tokens[5])
                             basecolor3.getText().clear()
                             basecolor3.text = Editable.Factory.getInstance().newEditable(tokens[6])
-                            percent3.getText().clear()
-                            percent3.text = Editable.Factory.getInstance().newEditable(tokens[7])
+                            percent3?.getText()?.clear()
+                            percent3?.text = Editable.Factory.getInstance().newEditable(tokens[7])
                             basecolor4.getText().clear()
-                            percent4.getText().clear()
+                            percent4?.getText()?.clear()
                             weightcolor1.getText().clear()
                             weightcolor2.getText().clear()
-                            weightcolor3.getText().clear()
-                            weightcolor4.getText().clear()
+                            weightcolor3?.getText()?.clear()
+                            weightcolor4?.getText()?.clear()
                             calculateTip()
                         }
                         10 -> {
@@ -162,16 +165,16 @@ class MainActivity : AppCompatActivity() {
                             percent2.text = Editable.Factory.getInstance().newEditable(tokens[5])
                             basecolor3.getText().clear()
                             basecolor3.text = Editable.Factory.getInstance().newEditable(tokens[6])
-                            percent3.getText().clear()
-                            percent3.text = Editable.Factory.getInstance().newEditable(tokens[7])
+                            percent3?.getText()?.clear()
+                            percent3?.text = Editable.Factory.getInstance().newEditable(tokens[7])
                             basecolor4.getText().clear()
                             basecolor4.text = Editable.Factory.getInstance().newEditable(tokens[8])
-                            percent4.getText().clear()
-                            percent4.text = Editable.Factory.getInstance().newEditable(tokens[9])
+                            percent4?.getText()?.clear()
+                            percent4?.text = Editable.Factory.getInstance().newEditable(tokens[9])
                             weightcolor1.getText().clear()
                             weightcolor2.getText().clear()
-                            weightcolor3.getText().clear()
-                            weightcolor4.getText().clear()
+                            weightcolor3?.getText()?.clear()
+                            weightcolor4?.getText()?.clear()
                             calculateTip()
 
                         }
@@ -188,7 +191,9 @@ class MainActivity : AppCompatActivity() {
 
 
             }
+
         }
+
         magenta.setOnClickListener {
 
             val mp = MediaPlayer.create(baseContext, R.raw.ortal_combat_toasty)
@@ -201,54 +206,141 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        massa.setOnClickListener() {
+            calculateTip()
+        }
         kkalkulat.setOnClickListener() {
-           calculateTip()
+            calculateTip()
         }
     }
-        fun calculateTip() {
-            if (TextUtils.isEmpty(massa.text.toString())) {
-                massa.error = "Количество краски в десятичной дроби"
-                return
+
+
+    fun calculateTip() {
+        if (TextUtils.isEmpty(massa.text.toString())) {
+            massa.error = "Количество краски в десятичной дроби"
+            return
+        }
+        if (TextUtils.isEmpty(basecolor3.text.toString())) {
+            //percent3?.error = "Поле может быть пустым"
+            percent3?.visibility = View.INVISIBLE
+            weightcolor3?.visibility = View.INVISIBLE
+            percent3?.text = Editable.Factory.getInstance().newEditable("0.0")
+            weightcolor3?.text = Editable.Factory.getInstance().newEditable("0.0")
+
+
+        } else {
+            percent3?.visibility = View.VISIBLE
+            weightcolor3?.visibility = View.VISIBLE
+        }
+
+
+
+        if (TextUtils.isEmpty(basecolor4.text.toString())) {
+            //percent4?.error = "Поле может быть пустым"
+            percent4?.visibility = View.INVISIBLE
+            weightcolor4?.visibility = View.INVISIBLE
+            percent4?.text = Editable.Factory.getInstance().newEditable("0.0")
+            weightcolor4?.text = Editable.Factory.getInstance().newEditable("0.0")
+
+
+        } else {
+            percent4?.visibility = View.VISIBLE
+            weightcolor4?.visibility = View.VISIBLE
+        }
+
+
+        val doubleMassa = massa.text.toString().toDouble()
+        val tipPercent1 = percent1.text.toString().toDouble()
+        val tipPercent2 = percent2.text.toString().toDouble()
+        val tipPercent3 = percent3?.text.toString().toDouble()
+        val tipPercent4 = percent4?.text.toString().toDouble()
+
+        val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 1000).roundToInt() / 1000.0
+        val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 1000).roundToInt() / 1000.0
+        val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 1000).roundToInt() / 1000.0
+        val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 1000).roundToInt() / 1000.0
+
+        weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+        weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+        weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+        weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+
+        val menuy = findViewById<Button>(R.id.button3)
+        val popupMenu2 = PopupMenu(this, menuy)
+        popupMenu2.inflate(R.menu.popup_menu)
+        popupMenu2.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.ooo -> {
+                    val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 1000).roundToInt() / 1000.0
+                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 1000).roundToInt() / 1000.0
+                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 1000).roundToInt() / 1000.0
+                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 1000).roundToInt() / 1000.0
+                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+
+
+                }
+                R.id.oo -> {
+                    val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 100).roundToInt() / 100.0
+                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 100).roundToInt() / 100.0
+                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 100).roundToInt() / 100.0
+                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 100).roundToInt() / 100.0
+                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+                }
+                R.id.o -> {
+                    val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 10).roundToInt() / 10.0
+                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 10).roundToInt() / 10.0
+                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 10).roundToInt() / 10.0
+                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 10).roundToInt() / 10.0
+                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+                }
+
+
             }
-            if (TextUtils.isEmpty(percent3.text.toString())) {
-                percent3.error = "Введите проценты"
-                return
-            }
-            if (TextUtils.isEmpty(percent4.text.toString())) {
-                percent4.error = "Введите проценты"
-                return
-            }
+            false
+        }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            popupMenu2.setForceShowIcon(true)
+        }
 
-            val doubleMassa = massa.text.toString().toDouble()
-            val tipPercent1 = percent1.text.toString().toDouble()
-            val tipPercent2 = percent2.text.toString().toDouble()
-            val tipPercent3 = percent3.text.toString().toDouble()
-            val tipPercent4 = percent4.text.toString().toDouble()
+        menuy.setOnClickListener {
+            popupMenu2.show()
+        }
 
 
 
-            val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 100).roundToInt()/100.0
-            val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 100).roundToInt()/100.0
-            val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 100).roundToInt()/100.0
-            val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 100).roundToInt()/100.0
-            weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
-            weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
-            weightcolor3.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
-            weightcolor4.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+        /*weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+        weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+        weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+        weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())*/
+    }
+
+}            //weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+            //weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+            //weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+            //weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+
             //Log.d(TAG, "calc_tip1: $calc_tip1")
             //Log.d(TAG, "calc_tip2: $calc_tip2")
             //Log.d(TAG, "calc_tip3: $calc_tip3")
             //Log.d(TAG, "calc_tip4: $calc_tip4")
-            Log.d(TAG, "weightcolor1: ${weightcolor1.text}")
-            Log.d(TAG, "weightcolor2: ${weightcolor2.text}")
-            Log.d(TAG, "weightcolor3: ${weightcolor3.text}")
-            Log.d(TAG, "weightcolor4: ${weightcolor4.text}")
+            //Log.d(TAG, "weightcolor1: ${weightcolor1?.text}")
+            //Log.d(TAG, "weightcolor2: ${weightcolor2?.text}")
+            //Log.d(TAG, "weightcolor3: ${weightcolor3?.text}")
+            //Log.d(TAG, "weightcolor4: ${weightcolor4?.text}")
 
 
-        }
 
-}
+
 
 
 
