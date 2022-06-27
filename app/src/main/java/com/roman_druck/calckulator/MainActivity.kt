@@ -1,8 +1,10 @@
 package com.roman_druck.calckulator
 
 
+//import android.content.Context
 import android.graphics.Color
-import android.media.MediaPlayer
+//import android.media.Image
+//import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -11,6 +13,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+//import androidx.core.content.ContextCompat
 //import androidx.core.widget.addTextChangedListener
 //import java.math.BigDecimal
 //import java.math.RoundingMode
@@ -21,7 +24,7 @@ import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
     lateinit var pantone: AutoCompleteTextView
-    private var colorsampl: TextView? = null
+    lateinit var colorsampl: TextView
     lateinit var massa: EditText
     lateinit var basecolor1: EditText
     lateinit var basecolor2: EditText
@@ -35,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var weightcolor2: EditText
     private var weightcolor3: EditText? = null
     private var weightcolor4: EditText? = null
-
+    lateinit var clean: Button
     val TAG: String = "Main"
 
     //val hex_pattern = Regex("^#[0-9A-F]{6}")
@@ -43,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d(TAG, "onCreate")
+
 
         pantone = findViewById(R.id.autoCompleteTextView)
         colorsampl = findViewById(R.id.colorsampl)
@@ -55,13 +60,18 @@ class MainActivity : AppCompatActivity() {
         percent2 = findViewById(R.id.percent2)
         percent3 = findViewById(R.id.percent3)
         percent4 = findViewById(R.id.percent4)
-        val magenta = findViewById<Button>(R.id.button2)
+        //val magenta = findViewById<Button>(R.id.button2)
         val kkalkulat = findViewById<Button>(R.id.button4)
-        //val menuy = findViewById<Button>(R.id.button3)
+        clean = findViewById(R.id.button)
         weightcolor1 = findViewById(R.id.weightcolor1)
         weightcolor2 = findViewById(R.id.weightcolor2)
         weightcolor3 = findViewById(R.id.weightcolor3)
         weightcolor4 = findViewById(R.id.weightcolor4)
+        /*img = findViewById(R.id.zvet)
+        img.setImageDrawable(
+            ContextCompat.getDrawable(this, R.drawable.celovek),
+        )
+        img.setColorFilter(Color.parseColor(tokens[1])))*/
 
         val input_stream = baseContext.resources.openRawResource(R.raw.pantone_data)
         // create a BufferedeReader from the input stream in order to read line-by-line
@@ -96,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, pantone.text.toString(), Toast.LENGTH_SHORT).show()
             try {
-                //colorsampl?.visibility = TextView.VISIBLE
+                //colorsampl.visibility = TextView.VISIBLE
                 massa.setBackgroundColor(Color.parseColor(pantone.text.toString()))
             } catch (e: Exception) {
                 val index = colorName.indexOf(pantone.text.toString())
@@ -186,33 +196,69 @@ class MainActivity : AppCompatActivity() {
 
 
                 //Toast.makeText(applicationContext, "" , Toast.LENGTH_SHORT).show()
-                colorsampl?.visibility = View.VISIBLE
-                colorsampl?.setBackgroundColor(Color.parseColor(tokens[1]))
+                colorsampl.visibility = View.VISIBLE
+                colorsampl.setBackgroundColor(Color.parseColor(tokens[1]))
+                //img.setColorFilter(Color.parseColor(tokens[1]))
 
 
             }
 
+
+
         }
 
-        magenta.setOnClickListener {
-
-            val mp = MediaPlayer.create(baseContext, R.raw.ortal_combat_toasty)
-            mp.start()
-            magenta.isEnabled = false
-            mp.setOnCompletionListener {
-                magenta.isEnabled = true
 
 
-            }
 
-        }
         massa.setOnClickListener() {
             calculateTip()
         }
         kkalkulat.setOnClickListener() {
             calculateTip()
         }
+
+
+
+
     }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        colorsampl.text = savedInstanceState.getString("S")
+        // pantone.text = savedInstanceState.getString("STRING")
+        Log.d(TAG, "RestoreInstans: $colorsampl")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResum")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+     override fun onSaveInstanceState(outState: Bundle) {
+
+        outState?.run {
+            putString("S", colorsampl.text.toString())
+            //putString("STRING",pantone.text.toString())
+        }
+
+        super.onSaveInstanceState(outState)
+
+
+        Log.d(TAG, "onSaveInstans:$colorsampl")
+    }
+
 
 
     fun calculateTip() {
@@ -221,7 +267,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
         if (TextUtils.isEmpty(basecolor3.text.toString())) {
-            //percent3?.error = "Поле может быть пустым"
+            percent3?.error = "Поле может быть пустым"
             percent3?.visibility = View.INVISIBLE
             weightcolor3?.visibility = View.INVISIBLE
             percent3?.text = Editable.Factory.getInstance().newEditable("0.0")
@@ -229,14 +275,14 @@ class MainActivity : AppCompatActivity() {
 
 
         } else {
-            percent3?.visibility = View.VISIBLE
-            weightcolor3?.visibility = View.VISIBLE
+            this.percent3?.visibility = View.VISIBLE
+            this.weightcolor3?.visibility = View.VISIBLE
         }
 
 
 
         if (TextUtils.isEmpty(basecolor4.text.toString())) {
-            //percent4?.error = "Поле может быть пустым"
+            percent4?.error = "Поле может быть пустым"
             percent4?.visibility = View.INVISIBLE
             weightcolor4?.visibility = View.INVISIBLE
             percent4?.text = Editable.Factory.getInstance().newEditable("0.0")
@@ -246,6 +292,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             percent4?.visibility = View.VISIBLE
             weightcolor4?.visibility = View.VISIBLE
+        }
+
+        if (TextUtils.isEmpty(percent1.text.toString())){
+            percent1.error = "Поле должно быть заполнено"
+            return
+        }
+        if (TextUtils.isEmpty(percent2.text.toString())) {
+            percent2.error = "Поле должно быть заполнено"
+            return
         }
 
 
@@ -315,28 +370,34 @@ class MainActivity : AppCompatActivity() {
         menuy.setOnClickListener {
             popupMenu2.show()
         }
+        clean.setOnClickListener {
+            basecolor1.getText().clear()
+            basecolor2.getText().clear()
+            basecolor3.getText().clear()
+            basecolor4.getText().clear()
+
+            percent1.getText().clear()
+            percent2.getText().clear()
+            percent3?.getText()?.clear()
+            percent4?.getText()?.clear()
+
+            weightcolor1.getText().clear()
+            weightcolor2.getText().clear()
+            weightcolor3?.getText()?.clear()
+            weightcolor4?.getText()?.clear()
+
+            massa.getText().clear()
+            pantone.getText().clear()
+            colorsampl.visibility = View.INVISIBLE
+
+
+        }
 
 
 
-        /*weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
-        weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
-        weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
-        weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())*/
     }
 
-}            //weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
-            //weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
-            //weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
-            //weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
-
-            //Log.d(TAG, "calc_tip1: $calc_tip1")
-            //Log.d(TAG, "calc_tip2: $calc_tip2")
-            //Log.d(TAG, "calc_tip3: $calc_tip3")
-            //Log.d(TAG, "calc_tip4: $calc_tip4")
-            //Log.d(TAG, "weightcolor1: ${weightcolor1?.text}")
-            //Log.d(TAG, "weightcolor2: ${weightcolor2?.text}")
-            //Log.d(TAG, "weightcolor3: ${weightcolor3?.text}")
-            //Log.d(TAG, "weightcolor4: ${weightcolor4?.text}")
+}
 
 
 

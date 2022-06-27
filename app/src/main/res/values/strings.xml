@@ -9,8 +9,10 @@
     <string name="decimal">numberDecimal</string>
     <string name="base_color1" translatable="false">color1</string>
     <string name="tost">получилось что то</string>
-
-
+    <string name="error">Поле должно быть заполнено</string>
+    <string name="clearAll">Clear</string>
+    <string name="round">Round</string>
+    <string name="calculate">Calkulate</string>
 
 
 </resources>
