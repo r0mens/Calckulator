@@ -94,21 +94,11 @@
 
     <EditText
         android:id="@+id/percent1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="1"
-        android:gravity="left"
-        android:padding="5dp"
-        android:inputType="text|numberDecimal"
-        android:autoSizeMinTextSize="8sp"
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizePresetSizes="array/auto_size_text_size"
-        android:autoSizeStepGranularity="2sp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView1"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="uniform"
+        style="@style/EditTextView" />
 
     <EditText
         android:id="@+id/weightcolor1"
@@ -155,21 +145,11 @@
 
     <EditText
         android:id="@+id/percent2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="1"
-        android:gravity="left"
-        android:padding="5dp"
-        android:inputType="text|numberDecimal"
-        android:autoSizeMinTextSize="8sp"
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizePresetSizes="array/auto_size_text_size"
-        android:autoSizeStepGranularity="2sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
         app:layout_constraintStart_toEndOf="@+id/basecolor2"
         app:layout_constraintTop_toBottomOf="@+id/percent1"
-        app:autoSizeTextType="uniform"/>
+        app:autoSizeTextType="uniform"
+        style="@style/EditTextView" />
 
     <EditText
         android:id="@+id/weightcolor3"
@@ -187,21 +167,11 @@
 
     <EditText
         android:id="@+id/percent3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:gravity="left"
-        android:padding="5dp"
-        android:ems="1"
-        android:inputType="text|numberDecimal"
-        android:autoSizeMinTextSize="8sp"
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizePresetSizes="array/auto_size_text_size"
-        android:autoSizeStepGranularity="2sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor2"
         app:layout_constraintStart_toEndOf="@+id/basecolor2"
         app:layout_constraintTop_toBottomOf="@+id/percent2"
-        app:autoSizeTextType="uniform"/>
+        app:autoSizeTextType="uniform"
+        style="@style/EditTextView" />
 
     <EditText
         android:id="@+id/basecolor3"
@@ -235,21 +205,11 @@
 
     <EditText
         android:id="@+id/percent4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="1"
-        android:gravity="left"
-        android:padding="5dp"
-        android:inputType="text|numberDecimal"
-        android:autoSizeMinTextSize="8sp"
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizePresetSizes="array/auto_size_text_size"
-        android:autoSizeStepGranularity="2sp"
         app:layout_constraintEnd_toStartOf="@+id/weightcolor3"
         app:layout_constraintStart_toStartOf="@+id/percent3"
         app:layout_constraintTop_toBottomOf="@+id/percent3"
-        app:autoSizeTextType="uniform"/>
+        app:autoSizeTextType="uniform"
+        style="@style/EditTextView" />
 
     <EditText
         android:id="@+id/basecolor4"
@@ -277,19 +237,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/massa"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elegantTextHeight="true"
-            android:gravity="center"
             android:hint="@string/massa_total"
-            android:inputType="numberDecimal"
-            android:background="@drawable/gradient"
-            android:textColor="@color/black"
-            android:autoSizeMinTextSize="8sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizePresetSizes="array/auto_size_text_size"
-            android:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"/>
+            app:autoSizeTextType="uniform"
+            style="@style/massa" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -302,16 +252,12 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintBottom_toTopOf="@id/linear">
+        app:layout_constraintBottom_toTopOf="@id/linear"
+        style="@style/Frame">
 
 
         <TextView
@@ -334,36 +280,20 @@
 
         <Button
             android:id="@+id/button"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#2196F3"
-            android:text="@string/clearAll"/>
+            android:text="@string/clearAll"
+            style="@style/Button" />
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:backgroundTint="@color/pantone_red032"
-            android:text="m"/>
+            android:text="m"
+            style="@style/Button2" />
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:backgroundTint="@color/yellow_fon"
-            android:text="@string/round"/>
+            android:text="@string/round"
+            style="@style/Button3" />
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:backgroundTint="@color/black"
-            android:text="@string/calculate"/>
+            android:text="@string/calculate"
+            style="@style/Button4" />
 
 
     </LinearLayout>

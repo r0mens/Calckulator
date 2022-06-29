@@ -13,6 +13,9 @@
     <string name="clearAll">Clear</string>
     <string name="round">Round</string>
     <string name="calculate">Calkulate</string>
+    <string name="info">Инфо.</string>
+    <string name="help">Тех.поддержка</string>
+    <string name="donat">Донат</string>
 
 
 </resources>

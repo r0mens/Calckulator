@@ -2,6 +2,7 @@ package com.roman_druck.calckulator
 
 
 //import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 //import android.media.Image
 //import android.media.MediaPlayer
@@ -10,6 +11,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
         pantone = findViewById(R.id.autoCompleteTextView)
@@ -222,6 +226,27 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finishAffinity()
+            R.id.info -> {
+                val intent = Intent(this@MainActivity, InfoActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.help -> {
+                Toast.makeText(this, "help", Toast.LENGTH_LONG).show()
+            }
+            R.id.donat -> {
+                Toast.makeText(this, "donat", Toast.LENGTH_LONG).show()
+            }
+        }
+       return true
+    }
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         colorsampl.text = savedInstanceState.getString("S")
@@ -268,10 +293,10 @@ class MainActivity : AppCompatActivity() {
         }
         if (TextUtils.isEmpty(basecolor3.text.toString())) {
             percent3?.error = "Поле может быть пустым"
-            percent3?.visibility = View.INVISIBLE
-            weightcolor3?.visibility = View.INVISIBLE
             percent3?.text = Editable.Factory.getInstance().newEditable("0.0")
             weightcolor3?.text = Editable.Factory.getInstance().newEditable("0.0")
+            percent3?.visibility = View.INVISIBLE
+            weightcolor3?.visibility = View.INVISIBLE
 
 
         } else {
@@ -283,18 +308,17 @@ class MainActivity : AppCompatActivity() {
 
         if (TextUtils.isEmpty(basecolor4.text.toString())) {
             percent4?.error = "Поле может быть пустым"
-            percent4?.visibility = View.INVISIBLE
-            weightcolor4?.visibility = View.INVISIBLE
             percent4?.text = Editable.Factory.getInstance().newEditable("0.0")
             weightcolor4?.text = Editable.Factory.getInstance().newEditable("0.0")
-
+            percent4?.visibility = View.INVISIBLE
+            weightcolor4?.visibility = View.INVISIBLE
 
         } else {
             percent4?.visibility = View.VISIBLE
             weightcolor4?.visibility = View.VISIBLE
         }
 
-        if (TextUtils.isEmpty(percent1.text.toString())){
+        if (TextUtils.isEmpty(percent1.text.toString())) {
             percent1.error = "Поле должно быть заполнено"
             return
         }
@@ -327,35 +351,47 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.ooo -> {
                     val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 1000).roundToInt() / 1000.0
-                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    weightcolor1.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip1.toString())
                     val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 1000).roundToInt() / 1000.0
-                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    weightcolor2.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip2.toString())
                     val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 1000).roundToInt() / 1000.0
-                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    weightcolor3?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip3.toString())
                     val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 1000).roundToInt() / 1000.0
-                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+                    weightcolor4?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip4.toString())
 
 
                 }
                 R.id.oo -> {
                     val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 100).roundToInt() / 100.0
-                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    weightcolor1.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip1.toString())
                     val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 100).roundToInt() / 100.0
-                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    weightcolor2.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip2.toString())
                     val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 100).roundToInt() / 100.0
-                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    weightcolor3?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip3.toString())
                     val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 100).roundToInt() / 100.0
-                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+                    weightcolor4?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip4.toString())
                 }
                 R.id.o -> {
                     val calc_tip1 = ((doubleMassa * tipPercent1) / 100 * 10).roundToInt() / 10.0
-                    weightcolor1.text = Editable.Factory.getInstance().newEditable(calc_tip1.toString())
+                    weightcolor1.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip1.toString())
                     val calc_tip2 = ((doubleMassa * tipPercent2) / 100 * 10).roundToInt() / 10.0
-                    weightcolor2.text = Editable.Factory.getInstance().newEditable(calc_tip2.toString())
+                    weightcolor2.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip2.toString())
                     val calc_tip3 = ((doubleMassa * tipPercent3) / 100 * 10).roundToInt() / 10.0
-                    weightcolor3?.text = Editable.Factory.getInstance().newEditable(calc_tip3.toString())
+                    weightcolor3?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip3.toString())
                     val calc_tip4 = ((doubleMassa * tipPercent4) / 100 * 10).roundToInt() / 10.0
-                    weightcolor4?.text = Editable.Factory.getInstance().newEditable(calc_tip4.toString())
+                    weightcolor4?.text =
+                        Editable.Factory.getInstance().newEditable(calc_tip4.toString())
                 }
 
 
@@ -388,14 +424,16 @@ class MainActivity : AppCompatActivity() {
 
             massa.getText().clear()
             pantone.getText().clear()
+            //pantone.clearFocus()
             colorsampl.visibility = View.INVISIBLE
 
 
         }
 
-
-
     }
+
+
+
 
 }
 
