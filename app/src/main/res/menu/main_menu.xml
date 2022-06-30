@@ -16,4 +16,14 @@
      android:id="@+id/info"
      android:icon="@drawable/info"
      app:showAsAction = "ifRoom" />
+ <item
+     android:title="@string/lang"
+     android:id="@+id/lang"
+     android:icon="@drawable/lang"
+     app:showAsAction = "ifRoom" />
+
+
+
+
+
 </menu>

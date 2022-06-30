@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Calckulator</string>
+    <string name="app_name">Calculator</string>
 
-    <string name="number_color">Название цвета</string>
-    <string name="base_color">Базовые цвета</string>
+    <string name="number_color">Name color</string>
+    <string name="base_color">Base colors</string>
     <string name="percent">%</string>
-    <string name="massa_base_color">Масса(..)</string>
-    <string name="massa_total">Общая масса</string>
+    <string name="massa_base_color">Massa(..)</string>
+    <string name="massa_total">Total massa</string>
     <string name="decimal">numberDecimal</string>
     <string name="base_color1" translatable="false">color1</string>
     <string name="tost">получилось что то</string>
@@ -13,9 +13,16 @@
     <string name="clearAll">Clear</string>
     <string name="round">Round</string>
     <string name="calculate">Calkulate</string>
-    <string name="info">Инфо.</string>
-    <string name="help">Тех.поддержка</string>
-    <string name="donat">Донат</string>
+    <string name="info">Info.</string>
+    <string name="help">Support</string>
+    <string name="donat">Donat</string>
+    <string name="lang">Language</string>
+    <string name="string_info">1.Отключите темную тему(она искажает выводимый цвет)/n
+                               2.Используйте портретную ореентацию/n
+                               3.Название цвета вводится английскими буквами:например p345/n
+                               буква -p- используется всегда(исключения составляют/n
+                               Cool и Warm Grey/n</string>
+
 
 
 </resources>
