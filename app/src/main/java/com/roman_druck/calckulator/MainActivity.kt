@@ -1,11 +1,10 @@
 package com.roman_druck.calckulator
 
 
-//import android.content.Context
+
+
 import android.content.Intent
 import android.graphics.Color
-//import android.media.Image
-//import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -16,12 +15,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-//import androidx.core.content.ContextCompat
-//import androidx.core.widget.addTextChangedListener
-//import java.math.BigDecimal
-//import java.math.RoundingMode
-//import java.text.DecimalFormat
-//import kotlin.math.round
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.roman_druck.calckulator.R.drawable.power_off
+import com.roman_druck.calckulator.R.id.adView
+import kotlin.collections.ArrayList
+
 import kotlin.math.roundToInt
 
 
@@ -42,15 +42,27 @@ class MainActivity : AppCompatActivity() {
     private var weightcolor3: EditText? = null
     private var weightcolor4: EditText? = null
     lateinit var clean: Button
+    lateinit var mAdView : AdView
     val TAG: String = "Main"
 
-    //val hex_pattern = Regex("^#[0-9A-F]{6}")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
+
         Log.d(TAG, "onCreate")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(power_off)
+
+
+
 
 
         pantone = findViewById(R.id.autoCompleteTextView)
@@ -71,11 +83,7 @@ class MainActivity : AppCompatActivity() {
         weightcolor2 = findViewById(R.id.weightcolor2)
         weightcolor3 = findViewById(R.id.weightcolor3)
         weightcolor4 = findViewById(R.id.weightcolor4)
-        /*img = findViewById(R.id.zvet)
-        img.setImageDrawable(
-            ContextCompat.getDrawable(this, R.drawable.celovek),
-        )
-        img.setColorFilter(Color.parseColor(tokens[1])))*/
+
 
         val input_stream = baseContext.resources.openRawResource(R.raw.pantone_data)
         // create a BufferedeReader from the input stream in order to read line-by-line
@@ -90,7 +98,6 @@ class MainActivity : AppCompatActivity() {
         // create list of colornames to populate spinner
         for (i in lines) {
             val tokens = i.split("|")
-            //Log.d(TAG, "tokens: ${i.split("|")}")
             colorName.add(tokens[0])
 
             //Log.d(TAG, "colorName: ${tokens[0]}")
@@ -110,7 +117,6 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, pantone.text.toString(), Toast.LENGTH_SHORT).show()
             try {
-                //colorsampl.visibility = TextView.VISIBLE
                 massa.setBackgroundColor(Color.parseColor(pantone.text.toString()))
             } catch (e: Exception) {
                 val index = colorName.indexOf(pantone.text.toString())
@@ -198,12 +204,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-
-                //Toast.makeText(applicationContext, "" , Toast.LENGTH_SHORT).show()
                 colorsampl.visibility = View.VISIBLE
                 colorsampl.setBackgroundColor(Color.parseColor(tokens[1]))
-                //img.setColorFilter(Color.parseColor(tokens[1]))
-
 
             }
 
@@ -226,6 +228,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -238,19 +241,23 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.help -> {
-                Toast.makeText(this, "help", Toast.LENGTH_LONG).show()
+                val intent = Intent(this@MainActivity, InfoActivity::class.java)
+                startActivity(intent)
+
             }
             R.id.donat -> {
-                Toast.makeText(this, "donat", Toast.LENGTH_LONG).show()
+                val intent = Intent(this@MainActivity, InfoActivity::class.java)
+                startActivity(intent)
+
             }
         }
        return true
     }
 
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         colorsampl.text = savedInstanceState.getString("S")
-        // pantone.text = savedInstanceState.getString("STRING")
         Log.d(TAG, "RestoreInstans: $colorsampl")
     }
 
@@ -275,13 +282,22 @@ class MainActivity : AppCompatActivity() {
 
         outState?.run {
             putString("S", colorsampl.text.toString())
-            //putString("STRING",pantone.text.toString())
+            putString("Pantone",pantone.text.toString())
+            putString("Base1",basecolor1.text.toString())
+            putString("Base2",basecolor2.text.toString())
+            putString("Base3",basecolor3?.text.toString())
+            putString("Base4",basecolor4?.text.toString())
         }
 
         super.onSaveInstanceState(outState)
 
 
-        Log.d(TAG, "onSaveInstans:$colorsampl")
+         Log.d(TAG, "onSaveInstans:$colorsampl")
+         Log.d(TAG, "onSaveInstans:$pantone")
+         Log.d(TAG, "onSaveInstans:$basecolor1")
+         Log.d(TAG, "onSaveInstans:$basecolor2")
+         Log.d(TAG, "onSaveInstans:$basecolor3")
+         Log.d(TAG, "onSaveInstans:$basecolor4")
     }
 
 

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+    <string name="number_color">Name color</string>
+    <string name="base_color">Base colors</string>
+    <string name="percent">%</string>
+    <string name="massa_base_color">Massa(..)</string>
+    <string name="massa_total">Total massa</string>
+    <string name="decimal">numberDecimal</string>
+    <string name="base_color1">color1</string>
+    <string name="error">Поле должно быть заполнено</string>
+    <string name="clearAll">Clear</string>
+    <string name="round">Round</string>
+    <string name="calculate">Calkulate</string>
+    <string name="info">Info.</string>
+    <string name="help">Support</string>
+    <string name="donat">Donat</string>
+    <string name="tost">well</string>
+    <string name="help_text">roman_druck@list.ru</string>
+    <string name="donat_text"> number card 5175 9650 0001 5851</string>
+
+
+</resources>

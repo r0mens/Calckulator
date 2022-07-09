@@ -8,7 +8,6 @@
     <string name="massa_total">Total massa</string>
     <string name="decimal">numberDecimal</string>
     <string name="base_color1" translatable="false">color1</string>
-    <string name="tost">получилось что то</string>
     <string name="error">Поле должно быть заполнено</string>
     <string name="clearAll">Clear</string>
     <string name="round">Round</string>
@@ -16,13 +15,12 @@
     <string name="info">Info.</string>
     <string name="help">Support</string>
     <string name="donat">Donat</string>
-    <string name="lang">Language</string>
-    <string name="string_info">1.Отключите темную тему(она искажает выводимый цвет)/n
-                               2.Используйте портретную ореентацию/n
-                               3.Название цвета вводится английскими буквами:например p345/n
-                               буква -p- используется всегда(исключения составляют/n
-                               Cool и Warm Grey/n</string>
-
+    <string name="tost">well</string>
+    <string name="help_text">roman_druck@list.ru</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="donat_text"> number card 5175 9650 0001 5851</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

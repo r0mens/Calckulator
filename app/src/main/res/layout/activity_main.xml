@@ -25,13 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:background="@drawable/gradient"
+            android:gravity="center"
             android:hint="@string/number_color"
             android:inputType="none|textAutoComplete"
             android:textColorHint="@color/white"
             android:textStyle="bold"
-            app:autoSizeTextType="uniform"/>
+            app:autoSizeTextType="uniform" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -163,7 +163,8 @@
         app:layout_constraintEnd_toEndOf="@+id/weightcolor2"
         app:layout_constraintStart_toStartOf="@+id/weightcolor2"
         app:layout_constraintTop_toBottomOf="@+id/weightcolor2"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="uniform"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/percent3"
@@ -240,6 +241,9 @@
             android:hint="@string/massa_total"
             app:autoSizeTextType="uniform"
             style="@style/massa" />
+
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -260,6 +264,8 @@
         style="@style/Frame">
 
 
+
+
         <TextView
             android:id="@+id/colorsampl"
             android:layout_width="match_parent"
@@ -277,6 +283,16 @@
         app:layout_constraintLeft_toLeftOf="@+id/textInputLayout3"
         app:layout_constraintRight_toRightOf="@+id/textInputLayout3"
         app:layout_constraintBottom_toBottomOf="@+id/fon" >
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:adSize="LARGE_BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+        </com.google.android.gms.ads.AdView>
+
 
         <Button
             android:id="@+id/button"
@@ -297,5 +313,7 @@
 
 
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

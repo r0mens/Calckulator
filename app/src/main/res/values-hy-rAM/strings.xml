@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Հաշվիչ</string>
+    <string name="number_color">Անվան գույնը</string>
+    <string name="base_color">Հիմնական գույներ</string>
+    <string name="percent">%</string>
+    <string name="massa_base_color">Քաշը(..)</string>
+    <string name="massa_total">ընդհանուր քաշը</string>
+    <string name="decimal">numberDecimal</string>
+    <string name="base_color1" translatable="false">color1</string>
+    <string name="tost">получилось что то</string>
+    <string name="error">Դաշտը պետք է լրացվի</string>
+    <string name="clearAll">Պարզ</string>
+    <string name="round">կլորացում</string>
+    <string name="calculate">հաշվարկ</string>
+    <string name="info">տեղեկատվություն</string>
+    <string name="help">Օգնություն</string>
+    <string name="donat">դրամական օգնություն</string>
+    <string name="help_text">roman_druck@list.ru</string>
+    <string name="donat_text"> աջակցել նախագծին 5175 9650 0001 5851</string>
+
+
+
+
+</resources>

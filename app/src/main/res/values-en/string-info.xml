@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="string_info">
+    Turn off the dark theme (it distorts the output color).
+    Use portrait orientation.
+    The color name is entered in English letters: for example p367
+    the letter -p- is always used (exceptions are
+    Cool and Warm Grey.
+    </string>
+</resources>
