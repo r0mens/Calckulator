@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        MobileAds.initialize(this) {}
+
+       MobileAds.initialize(this) {}
         mAdView = findViewById(adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
@@ -222,9 +223,6 @@ class MainActivity : AppCompatActivity() {
         kkalkulat.setOnClickListener() {
             calculateTip()
         }
-
-
-
 
     }
 
@@ -447,9 +445,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
-
 
 }
 
