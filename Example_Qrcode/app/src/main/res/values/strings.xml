@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">QrCode</string>
-    <string name="Welcome">Добро пожаловать в QR сканер/генератор</string>
-    <string name="ScanQR_code">Сканировать QRcode</string>
-    <string name="GeneratorQR_code">Генерировать QRcode</string>
-    <string name="Enter_GeneratorQR_code">Введите текст для QRcode</string>
-    <string name="GeneratorQR_code_text">Сгенерированный QRcode появится здесь</string>
-    <string name="SkanQR_code_text">Текст после сканирования QRcode</string>
-</resources>
